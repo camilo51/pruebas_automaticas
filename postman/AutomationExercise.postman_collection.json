@@ -1,0 +1,53 @@
+{
+  "info": {
+    "_postman_id": "a2b7c409-8288-4e2f-bc31-e87870dc3173",
+    "name": "AutomationExercise",
+    "description": "HU-05 - Consultar productos\nAUT-03 - Consultar lista de productos\nTipo: Prueba de API/backend con Postman",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://automationexercise.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "CP-API-01 - Consultar lista de productos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/productsList",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productsList"
+          ]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"La respuesta es exitosa\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"La respuesta contiene productos\", function () {",
+              "    let respuesta = pm.response.json();",
+              "    pm.expect(respuesta.products.length).to.be.above(0);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -67,6 +67,18 @@ Para ejecutar en modo sin interfaz gráfica, omite `--headed`:
 npx playwright test
 ```
 
+## Pruebas API con Postman
+
+La colección se encuentra en `postman/AutomationExercise.postman_collection.json`.
+
+Para ejecutarla:
+
+1. Se abre Postman.
+2. Se importa el archivo de la colección.
+3. Se abre `CP-API-01 - Consultar lista de productos`.
+4. Se presiona **Send**.
+5. Se comprueba que las dos pruebas aparezcan como **PASSED**.
+
 ## Estructura
 
 ```text
